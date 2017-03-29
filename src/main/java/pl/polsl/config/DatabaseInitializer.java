@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.polsl.domain.Project;
 import pl.polsl.repository.ProjectRepository;
+import pl.polsl.repository.TaskRepository;
 
 import java.util.UUID;
 
@@ -22,4 +23,14 @@ public class DatabaseInitializer {
         }
     }
 
+    @Autowired
+    public void saveRandomTasks(TaskRepository taskRepository) {
+        //for (int i = 0; i < 10; i++) {
+        //Task task = new Task(i, 1, "tytuł", "opis", 1,
+        //1, "kategoria", "status");
+
+        //taskRepository.save(task);
+        //}
+
+    }
 }
