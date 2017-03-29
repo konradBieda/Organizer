@@ -2,11 +2,9 @@ package pl.polsl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.polsl.domain.Project;
+import pl.polsl.domain.Sprint;
 import pl.polsl.service.ProjectService;
 
 import java.util.List;
@@ -29,6 +27,11 @@ public class ProjectController {
     @GetMapping(path = "/project/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Project getProject(@PathVariable long id) {
         return projectService.getProject(id);
+    }
+
+    @PutMapping(path = "/project", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public void saveSprint(@RequestBody Project project) {
+        projectService.saveProject(project);
     }
 
 }

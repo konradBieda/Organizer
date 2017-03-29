@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.polsl.defs.ProjectStatusType;
+import pl.polsl.defs.SprintStatusType;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,11 +24,11 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Project {
+public class Sprint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long projectId;
+    private long sprintId;
 
     private String name;
 
@@ -37,12 +38,17 @@ public class Project {
 
     private LocalDateTime endDateTime;
 
-    //    private List<Sprint> sprints;
-    //TODO PS powiązać relacją ze sprintami
+//    private Project project;
+    //TODO PS powiązać relacją z projektem
+//    private List<Task> tasks;
+//    //TODO PS task zamienić na obiekt
 
-//    private List<String> storySizeUnits;
-    //TODO PS storySizeUnits zamienić na obiekt
+//    private List<Column> columns;
+//    //TODO PS columns zamienić na obiekt
+//
+//    private List<Category> categories;
+//    //TODO PS categories zamienić na obiekt
 
-    private ProjectStatusType status;
+    private SprintStatusType status;
 
 }

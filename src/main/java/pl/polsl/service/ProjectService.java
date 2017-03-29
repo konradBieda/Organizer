@@ -23,4 +23,12 @@ public class ProjectService {
     public Project getProject(long id) {
         return projectRepository.findOne(id);
     }
+
+    public void saveProject(Project project) {
+        projectRepository.save(project);
+    }
+
+
+
+
 }
