@@ -28,8 +28,7 @@ public class ProjectController {
 
     @GetMapping(path = "/project/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Project getProject(@PathVariable long id) {
-        Project project = projectService.getProject(id);
-        return project;
+        return projectService.getProject(id);
     }
 
 }
