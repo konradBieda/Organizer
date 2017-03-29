@@ -6,11 +6,12 @@ import pl.polsl.defs.ProjectStatusType;
 import pl.polsl.defs.SprintStatusType;
 import pl.polsl.domain.Project;
 import pl.polsl.domain.Sprint;
+import pl.polsl.domain.Task;
 import pl.polsl.repository.ProjectRepository;
 import pl.polsl.repository.SprintRepository;
+import pl.polsl.repository.TaskRepository;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.UUID;
 
 /**
@@ -21,7 +22,7 @@ public class DatabaseInitializer {
 
     @Autowired
     public void saveRandomProjects(ProjectRepository projectRepository) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             Project project = new Project();
             project.setName("Name: " + UUID.randomUUID().toString());
             project.setDescription("Description: " + UUID.randomUUID().toString());
@@ -47,4 +48,14 @@ public class DatabaseInitializer {
         }
     }
 
+    @Autowired
+    public void saveRandomTasks(TaskRepository taskRepository) {
+        for (int i = 0; i < 10; i++) {
+            Task task = new Task(i, 1, "tytuł", "opis", 1,
+                    1, "kategoria", "status");
+
+            taskRepository.save(task);
+        }
+
+    }
 }
