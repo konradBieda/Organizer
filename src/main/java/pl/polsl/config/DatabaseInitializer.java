@@ -3,7 +3,9 @@ package pl.polsl.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.polsl.domain.Project;
+import pl.polsl.domain.User;
 import pl.polsl.repository.ProjectRepository;
+import pl.polsl.repository.UserRepository;
 
 import java.util.UUID;
 
@@ -22,4 +24,14 @@ public class DatabaseInitializer {
         }
     }
 
+    @Autowired
+    public void saveRandomUsers(UserRepository userRepository) {
+        for (int i = 0; i < 10; i++) {
+            User user = new User();
+            user.setLogin("abc");
+            user.setPassword("Pass");
+            user.setRole("Admin");
+            userRepository.save(user);
+        }
+    }
 }
