@@ -24,6 +24,6 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long projectId;
-//jakis test
+
     private String name;
 }
