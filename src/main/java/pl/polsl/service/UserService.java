@@ -25,4 +25,7 @@ public class UserService {
         return userRepository.findOne(id);
     }
 
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 }

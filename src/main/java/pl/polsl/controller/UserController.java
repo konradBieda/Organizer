@@ -2,10 +2,7 @@ package pl.polsl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.polsl.domain.User;
 import pl.polsl.service.UserService;
 
@@ -30,5 +27,10 @@ public class UserController {
     @GetMapping(path = "/user/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public User getUser(@PathVariable long id) {
         return userService.getUser(id);
+    }
+
+    @PutMapping(path = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public void saveUser(@RequestBody User user) {
+        userService.saveUser(user);
     }
 }
